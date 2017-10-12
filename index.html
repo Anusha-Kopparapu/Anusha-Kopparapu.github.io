@@ -19,7 +19,7 @@
       <div class="panel-body text-center">
         <a href="#" id="view1" onclick="visibility('groups')" class="pull-left"> Groups </a>
        <a href="#" id="view" onclick="visibility('contacts')"> All Contacts</a>
-        <a href="#add" data-toggle="modal" class="pull-right"><i class="glyphicon glyphicon-plus "></i></a>
+        <a href="#add" data-toggle="modal" class="pull-right" onclick="cleardata()"><i class="glyphicon glyphicon-plus "></i></a>
       </div>
     </div>
              <div id="imaginary_container"> 
@@ -35,164 +35,53 @@
             <div id="groups">
               <h1>Groups</h1>
             </div>
-            <div>
-<div id="contacts" class="ist-group list-group-item col-xs-11">
-  <li><a href="#" id="preview"  onclick="divVisibility('Div1')">Adele</a></li>
-  <li><a href="#" id="preview1" onclick="divVisibility('Div2')">Agnes</a></li>
-  <li><a href="#" id="preview2" onclick="divVisibility('Div3')">Billy</a></li>
-  <li><a href="#" id="preview3" onclick="divVisibility('Div4')">Bob</a></li>
-  <li><a href="#" id="preview4" onclick="divVisibility('Div5')">Calvin</a></li>
-  <li><a href="#" id="preview5" onclick="divVisibility('Div6')">Christina</a></li>
-  <li><a href="#" id="preview6" onclick="divVisibility('Div7')">Cindy</a></li>
-<!-- </ul> -->
+ <div  class="container-fluid">
+ <div class="row">
+ <div  class="col-xs-11 contacts"><!-- data-spy="affix"-->
+  <a id="container" onclick="add1()"> </a>
 </div>
-<div id="aplhaList" class="col-xs-1">
-  <ul class="pull-right">
-            <li style="list-style: none;" ><a href="javascript:myScroll('A')">A</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('B')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('C')">C</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('D')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('E')">E</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('F')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('G')">G</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('H')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('I')">I</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('J')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('K')">K</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('L')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('M')">M</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('N')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('O')">O</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('P')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('Q')">Q</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('R')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('S')">S</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('T')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('U')">U</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('V')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('W')">W</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('X')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('Y')">Y</a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('Z')"><i class="fa fa-circle"></i></a></li>
-            <li style="list-style: none;"><a href="javascript:myScroll('#')">#</a></li>
+<div  class="col-xs-1 pull-right">
+  <ul class="pull-right aplhaList" style="list-style: none;">
+            <li><a href="javascript:myScroll('A')">A</a></li>
+            <li><a href="javascript:myScroll('B')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('C')">C</a></li>
+            <li><a href="javascript:myScroll('D')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('E')">E</a></li>
+            <li><a href="javascript:myScroll('F')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('G')">G</a></li>
+            <li><a href="javascript:myScroll('H')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('I')">I</a></li>
+            <li><a href="javascript:myScroll('J')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('K')">K</a></li>
+            <li><a href="javascript:myScroll('L')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('M')">M</a></li>
+            <li><a href="javascript:myScroll('N')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('O')">O</a></li>
+            <li><a href="javascript:myScroll('P')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('Q')">Q</a></li>
+            <li><a href="javascript:myScroll('R')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('S')">S</a></li>
+            <li><a href="javascript:myScroll('T')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('U')">U</a></li>
+            <li><a href="javascript:myScroll('V')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('W')">W</a></li>
+            <li><a href="javascript:myScroll('X')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('Y')">Y</a></li>
+            <li><a href="javascript:myScroll('Z')"><i class="fa fa-circle"></i></a></li>
+            <li><a href="javascript:myScroll('#')">#</a></li>
             </ul>
 </div>
 </div>
-      </div>
-        <div class="col-xs-12 col-sm-7 gutter">
-     <div class="panel panel-default" id="editpanel">
+</div>
+</div>
+
+        <div class="col-xs-12 col-sm-7 gutter" id="editpanel">
+     <div class="panel panel-default" >
       <div class="panel-body"><a href="#back" class="pull-left" id="back" onclick="visibility()">Back</a>
       <a href="#edit" class="pull-right" onclick="myEdit()">Edit</a></div>
     </div>
-    <div id="id">
-    <div id="Div1">
-      <h1>Adele</h1><br>
-      <a href="#mobile" id="mobile"> mobile <i class="fa fa-phone pull-right"></i><i class="fa fa-comment-o pull-right"></i>
-      </a><br>
-      <p>07685934562</p><br>
-      <a href="#mobile" id="mobile"> home <i class="fa fa-phone pull-right"></i>  </a><br>
-      <p>657904-647834</p><br>
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>adele@gmail.com</p><br>
-      
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>34567 Avenue Road</p>
-      <p>Banglore,Karnataka</p>
-      <p>India</p><br>
-    </div>
-     <div id="Div2">
-      <h1>Agnes</h1><br>
-      <a href="#mobile" id="mobile"> mobile <i class="fa fa-phone pull-right"></i><i class="fa fa-comment-o pull-right"></i>
-      </a><br>
-      <p>08948453678</p><br>
-      <a href="#mobile" id="mobile"> home <i class="fa fa-phone pull-right"></i>  </a><br>
-      <p>435621-846578</p><br>
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>agnes@gmail.com</p><br>
-      
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>23446 Brigade Road</p>
-      <p>Banglore,Karnataka</p>
-      <p>India</p><br>
-    </div>
-    <div id="Div3">
-      <h1>Billy</h1><br>
-      <a href="#mobile" id="mobile"> mobile <i class="fa fa-phone pull-right"></i><i class="fa fa-comment-o pull-right"></i>
-      </a><br>
-      <p>09745367123</p><br>
-      <a href="#mobile" id="mobile"> home <i class="fa fa-phone pull-right"></i>  </a><br>
-      <p>324648-049745</p><br>
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>billy@gmail.com</p><br>
-      
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>43562 Malleshwaram </p>
-      <p>Banglore,Karnataka</p>
-      <p>India</p><br>
-    </div>
-     <div id="Div4">
-      <h1>Bob</h1><br>
-      <a href="#mobile" id="mobile"> mobile <i class="fa fa-phone pull-right"></i><i class="fa fa-comment-o pull-right"></i>
-      </a><br>
-      <p>07898768590</p><br>
-      <a href="#mobile" id="mobile"> home <i class="fa fa-phone pull-right"></i>  </a><br>
-      <p>435647-783455</p><br>
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>bob@gmail.com</p><br>
-      
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>43562 whitefield</p>
-      <p>Banglore,Karnataka</p>
-      <p>India</p><br>
-    </div>
-      <div id="Div5">
-      <h1>Calvin</h1><br>
-      <a href="#mobile" id="mobile"> mobile <i class="fa fa-phone pull-right"></i><i class="fa fa-comment-o pull-right"></i>
-      </a><br>
-      <p>07689453217</p><br>
-      <a href="#mobile" id="mobile"> home <i class="fa fa-phone pull-right"></i>  </a><br>
-      <p>657892-234567</p><br>
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>calvin@gmail.com</p><br>
-      
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>56374 Sunkudkatte</p>
-      <p>Banglore,Karnataka</p>
-      <p>India</p><br>
-    </div>
-      <div id="Div6">
-      <h1>Christina</h1><br>
-      <a href="#mobile" id="mobile"> mobile <i class="fa fa-phone pull-right"></i><i class="fa fa-comment-o pull-right"></i>
-      </a><br>
-      <p>08765432198</p><br>
-      <a href="#mobile" id="mobile"> home <i class="fa fa-phone pull-right"></i>  </a><br>
-      <p>564733-564788</p><br>
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>christina@gmail.com</p><br>
-      
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>67483 Vijaynagar</p>
-      <p>Banglore,Karnataka</p>
-      <p>India</p><br>
-    </div>
-      <div id="Div7">
-      <h1>Cindy</h1><br>
-      <a href="#mobile" id="mobile"> mobile <i class="fa fa-phone pull-right"></i><i class="fa fa-comment-o pull-right"></i>
-      </a><br>
-      <p>09123456789</p><br>
-      <a href="#mobile" id="mobile"> home <i class="fa fa-phone pull-right"></i>  </a><br>
-      <p>345267-123456</p><br>
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>cindy@gmail.com</p><br>
-      
-      <a href="#mobile" id="mobile"> Work </a><br>
-      <p>43562 Rajajinagar</p>
-      <p>Banglore,Karnataka</p>
-      <p>India</p><br>
-    </div>
-  </div>
+         <div id="dvcontainer"></div>
         </div>
-       </div>
     </div>
 </div>
                             <div class="modal fade" id="add">
@@ -207,39 +96,32 @@
                 
                     <div class="form-group">
                         <label for="inputName">Name</label>
-                        <input type="text" name="username" id="name" class="form-control">
+                        <input type="text" name="username" id="name" class="form-control c1">
                     </div>
-                    <div class="form-group">
+                     <div class="form-group">
                         <label for="inputMobile">Mobile <!-- <i class="fa fa-comment-o"></i> --><i class="fa fa-phone"></i></label>
-                        <input type="text" name="username" class="form-control">
+                        <input type="text" name="username" id="number" class="form-control c1">
                     </div>
-                    <div class="form-group">
+                     <div class="form-group">
                         <label for="inputHome">Home <i class="fa fa-phone"></i> </label>
-                        <input type="text" name="home" class="form-control">
+                        <input type="text" name="home" class="form-control c1">
                     </div>
-                    <div class="col-md-12"><hr>
-                        
-                    </div>
+                    <div class="col-md-12"><hr></div>
                     <div class="form-group">
                             <label for="inputEmail">Work</label>
-                            <input type="text" name="work" class="form-control">
+                            <input type="text" name="work" class="form-control c1">
                         </div>
                         <div class="col-md-12"><hr></div>
-                        
                         <div class="form-group">
-                            <label for="inputAddress">Work</label>
-                            <input type="text" name="work" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputHomeAddress">Home</label>
-                            <input type="text" name="work" class="form-control">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" name="work" class="form-control c1">
                         </div>
                    
                 </form>
                            </div>
                            <div class="modal-footer">
                          <button type="button" class="btn btn-default" data-dismiss="modal" id="save" onclick="addname()">Save</button>
-                         <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                         <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancel()">cancel</button>
                         </div>
                       </div>
               </div>
