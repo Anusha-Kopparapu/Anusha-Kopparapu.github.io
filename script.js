@@ -2,7 +2,7 @@
     var input, filter, ul, li, a, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
-    ul = document.getElementById("contacts");
+    ul = document.getElementById("container");
     li = ul.getElementsByTagName("li");
     for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("a")[0];
@@ -13,23 +13,77 @@
         }
     }
 }
- function addname(){
-    var name = document.getElementById("name").value;
-    var node = document.createElement("A");
-    node.setAttribute('href','#');
-    var link = document.createElement("LI");
-    var textnode = document.createTextNode(name);
-    node.appendChild(textnode);  
-    link.appendChild(node);
-    document.getElementById("contacts").appendChild(link);
-    $('#add').find('input').val('');
+
+
+var arr = [];
+function addname() {
+   var inp = document.getElementsByClassName("c1");
+  arr.push(inp[0].value);
+   var html = '';
+   for (var i=0; i<arr.length; i++) {
+      html += '<li>' + '<a>' +arr[i] + '</a>' +'</li>';
+   }
+   var con = document.getElementById('container');
+   con.innerHTML = html;
+}
+
+
+ function add1(){
+    var Person = { 
+
+Name: "", 
+Mobile: "", 
+Home:"", 
+Work: "",  
+Address:""
+};
+ var lscount = localStorage.length; 
+var inputs = document.getElementsByClassName("c1"); 
+            Person.Name = inputs[0].value; 
+            Person.Mobile = inputs[1].value; 
+            Person.Home = inputs[2].value; 
+            Person.Work = inputs[3].value; 
+            Person.Address = inputs[4].value; 
+          localStorage.setItem("Person_", JSON.stringify(Person)); 
+        
+        var datacount = localStorage.length; 
+    if (datacount > 0) {    
+     var render = '';
+
+for (i = 0; i < datacount; i++) { 
+            var key = localStorage.key(i); //Get  the Key 
+            var person = localStorage.getItem(key); //Get Data from Key 
+            var data = JSON.parse(person); //Parse the Data back into the object 
+            
+             render += "<h2> Name  </h2>" + "<p>"+data.Name + " </p>" ;
+                render += "<h2> Mobile </h2>" + "<p>"+data.Mobile + " </p>" ;
+                        render +="<h2> Home </h2>" + "<p>"+data.Home + " </p>" ;
+                        render +="<h2> Work </h2>" + "<p>"+data.Work + " </p>";
+                        render +="<h2> Address</h2>" + "<p>"+data.Address + " </p>" ; 
+            
+          } 
+        dvcontainer.innerHTML = render; 
+      }
+
+          var mq = window.matchMedia('all and (max-width: 800px)');
+if(mq.matches) {
+    $('#hidepanel').hide();
+    $('#back').show();
+} else {
+    $('#hidepanel').show();
+    $('#back').hide();
+  } 
  }
+
+
  function myEdit() {
     document.getElementById("id").contentEditable = true;
     }
+
+
  function myScroll(myMessage) {
      var input, filter, ul, li, a, i;
-     ul = document.getElementById("contacts");
+     ul = document.getElementById("container");
      li = ul.getElementsByTagName("li");
      for (i = 0; i < li.length; i++) {
             a = li[i].getElementsByTagName("a")[0];
@@ -48,7 +102,9 @@
             }
         }
 }
- var divsions = ["contacts","groups","Div1", "Div2","Div3","Div4","Div5","Div6","Div7","aplhaList","editpanel"];
+
+
+ var divsions = ["contacts","groups","aplhaList","editpanel"];
     var visibleDiv = null;
     function visibility(divId) {
       if(visibleDiv === divId) {
@@ -71,121 +127,54 @@
       }
     }
     $(document).ready(function() {
-    //$('#contacts').hide();
     $('#view').on('click', function() {
-            $('#contacts').show();
-            $('#aplhaList').show();
+            $('.contacts').show();
+            $('.aplhaList').show();
             $('#groups').hide();
+             
     });
-    $('#groups').hide();
-    $('#Div1').hide();
-    $('#Div2').hide();
-    $('#Div3').hide();
-    $('#Div4').hide();
-    $('#Div5').hide();
-    $('#Div6').hide();
-    $('#Div7').hide();
-    $('#editpanel').hide();
+    
 
     $('#view1').on('click', function() {
             $('#groups').show();
-            $('#aplhaList').hide();
+            $('.aplhaList').hide();
             $('#editpanel').hide();
-             $('#contacts').hide();
+             $('.contacts').hide();
     });
-});
- var divs = ["Div1", "Div2","Div3","Div4","Div5","Div6","Div7","editpanel"];
-    var visibleDivId = null;
-    function divVisibility(divId) {
+    $('#container').on('click', function() {
+            $('#groups').hide();
+            $('.aplhaList').show();
+            $('#editpanel').show();
+             $('.contacts').show();
+             $('.dvcontainer').show();
+    });
+$('#groups').hide();
+    $('#editpanel').hide();
 
-      if(visibleDivId === divId) {
-        visibleDivId = null;
-      } else {
-        visibleDivId = divId;
-      }
+});
  
-        // var w = $(window).width();
-        // if (w < 550 ) {
-
-        //      $('#hidepanel').hide();
-
-        // }
-
-      hideNonVisibleDivs();
-    }
-    function hideNonVisibleDivs() {
-      
-      var i, divId, div;
-      for(i = 0; i < divs.length; i++) {
-        divId = divs[i];
-        div = document.getElementById(divId);
-        if(visibleDivId === divId) {
-          div.style.display = "block";
-        } else {
-          div.style.display = "none";
-        }
-      }
-  var mq = window.matchMedia('all and (max-width: 800px)');
-if(mq.matches) {
-    $('#hidepanel').hide();
-    $('#back').show();
-    // the width of browser is more then 700px
-} else {
-    $('#hidepanel').show();
-    $('#back').hide();
-    //  
-    
-    // the width of browser is less then 700px
- }
-    }  
-    $(document).ready(function() {
-    $('#Div1').hide();
-    $('#preview').on('click', function() {
-            $('#Div1').show();
-             $('#editpanel').show();
-
-    });
-    $('#Div2').hide();
-    $('#preview1').on('click', function() {
-            $('#Div2').show();
-            $('#editpanel').show();
-    });
-    $('#Div3').hide();
-    $('#preview2').on('click', function() {
-            $('#Div3').show();
-            $('#editpanel').show();
-    });
-     $('#Div4').hide();
-    $('#preview3').on('click', function() {
-            $('#Div4').show();
-            $('#editpanel').show();
-    });
-    $('#Div5').hide();
-    $('#preview4').on('click', function() {
-            $('#Div5').show();
-            $('#editpanel').show();
-    });
-    $('#Div6').hide();
-    $('#preview5').on('click', function() {
-            $('#Div6').show();
-            $('#editpanel').show();
-    });
-    $('#Div7').hide();
-    $('#preview6').on('click', function() {
-            $('#Div7').show();
-            $('#editpanel').show();
-    });
-
-});
     function visibility(){
 
         $('#hidepanel').show(); 
         $('#editpanel').hide(); 
-        $('#Div1').hide();
-        $('#Div2').hide();
-        $('#Div3').hide();
-        $('#Div4').hide();
-        $('#Div5').hide();
-        $('#Div6').hide();
-        $('#Div7').hide();
     }
+    function cancel (){
+    var storagecount = localStorage.length; 
+    if (storagecount > 0) 
+    { 
+        for (i = 0; i < storagecount; i++) { 
+            localStorage.clear(); 
+        } 
+    } 
+   
+   }
+   function cleardata(){
+    var inputs = document.getElementsByClassName("c1");
+    inputs[0].value='';
+    inputs[1].value='';
+    inputs[2].value='';
+    inputs[3].value='';
+    inputs[4].value='';
+
+   }
+   
